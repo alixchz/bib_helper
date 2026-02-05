@@ -2,6 +2,8 @@ import os
 import sys
 import csv
 
+fields_to_remove = ['doi', 'file', 'url']
+
 abbreviations_csv = 'journal_abbreviations.csv'
 # Récupère comme dict les abréviations de journaux, champs "short title" et "full title"
 abbrev_dict = {}
@@ -20,8 +22,6 @@ new_bib = sys.argv[2]
 
 if os.path.exists(new_bib):
     os.remove(new_bib)
-
-fields_to_remove = ['doi', 'file', 'url']
 
 for line in open(source_file_bib, 'r', encoding='utf-8'):
     write_line = True
